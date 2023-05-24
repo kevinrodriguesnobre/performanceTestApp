@@ -49,8 +49,26 @@ function httpTest() {
 
 
 
-// Function to test the performance
-function performTask() {
+function fibonacciPerformance() {
+	for (let i = 0; i < 500; i++) {
+		fibonacciTest();
+	}
+}
+
+function arrayPerformance() {
+	for (let i = 0; i < 1000000; i++) {
+		arrayTest();
+	}
+}
+
+
+function filePerformance() {
+	for (let i = 0; i < 15000; i++) {
+		fileTest();
+	}
+}
+
+function OverallTest() {
 	console.log('start performTask');
 	// Replace this with your actual code to test
 	let test = 5;
@@ -59,27 +77,48 @@ function performTask() {
 		// Some task to measure performance
 	}
 
-	for(let i=0; i<100; i++) {
+	for (let i = 0; i < 100; i++) {
 		httpTest();
 	}
 
-	for(let i=0; i<3000; i++) {
+	for (let i = 0; i < 1000; i++) {
 		fibonacciTest();
 		arrayTest();
 		fileTest();
 	}
 }
 
+function HTTPPerformance() {
+	for (let i = 0; i < 1000; i++) {
+		httpTest();
+	}
+}
+
+
+
 // Function to run the performance test
 function runPerformanceTest() {
-	// Start the timer
-	console.time('Task');
+	console.log('runPerformanceTest', Date.now());
+ 
+	console.time('fibonacciPerformance');
+	fibonacciPerformance();
+	console.timeEnd('fibonacciPerformance');
 
-	// Run the task
-	performTask();
+	console.time('arrayPerformance');
+	arrayPerformance();
+	console.timeEnd('arrayPerformance');
 
-	// End the timer
-	console.timeEnd('Task');
+	console.time('filePerformance');
+	filePerformance();
+	console.timeEnd('filePerformance');
+
+	console.time('Overall');
+	OverallTest();
+	console.timeEnd('Overall');
+
+	console.time('HTTPPerformance');
+	HTTPPerformance();
+	console.timeEnd('HTTPPerformance');
 }
 
 // Function to run the performance test on Windows
