@@ -11,6 +11,7 @@
     "@babel/runtime": "^7.20.7",
     "axios": "^1.4.0",
     "babel": "^6.23.0",
+    "cluster": "^0.7.7",
     "lodash": "^4.17.21",
     "meteor-node-stubs": "^1.2.5",
     "moment": "^2.29.4",

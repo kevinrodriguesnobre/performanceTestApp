@@ -23,8 +23,16 @@ function fileTest() {
 	const data = 'Sample data to write to a file.';
 	fs.writeFileSync('output.txt', data);
 
+
 	const readData = fs.readFileSync('output.txt', 'utf8');
 	//   console.log(readData);
+}
+
+const filePath = 'testfile.txt';
+function fileTest2() {
+	const dataToWrite = 'Hello, World!';
+	fs.writeFileSync(filePath, dataToWrite);
+	const dataRead = fs.readFileSync(filePath, 'utf8');
 }
 
 
@@ -65,6 +73,12 @@ function arrayPerformance() {
 function filePerformance() {
 	for (let i = 0; i < 15000; i++) {
 		fileTest();
+	}
+}
+
+function filePerformance2() {
+	for (let i = 0; i < 15000; i++) {
+		fileTest2();
 	}
 }
 
@@ -110,6 +124,10 @@ function runPerformanceTest() {
 
 	console.time('filePerformance');
 	filePerformance();
+	console.timeEnd('filePerformance');
+
+	console.time('filePerformance');
+	filePerformance2();
 	console.timeEnd('filePerformance');
 
 	console.time('Overall');

@@ -1,4 +1,4 @@
 node_modules/
 *.vsidx
 .vs/performanceTestApp/FileContentIndex/*
-.vs/slnx.sqlite
+.vs/*
