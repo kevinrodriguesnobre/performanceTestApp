@@ -7,23 +7,23 @@ import { Meteor } from 'meteor/meteor';
 
 // Example asynchronous I/O operation
 function performAsyncIO() {
-	// let filePath = path.resolve(__dirname, './data.txt');
+	let filePath = path.resolve(process.env.PWD + __dirname, 'data.txt');
 	// console.log(filePath);
-	fs.readFile('./data.txt', 'utf8', (err, data) => {
+	fs.readFile(filePath, 'utf8', (err, data) => {
 		if (err) throw err;
 		console.log('File content:', data);
 	});
-}
+} 
 
 // Example CPU-intensive task using worker threads
 function performCPUIntensiveTask() {
 	// console.log(__dirname);
-	// let filePath = path.resolve(__dirname, 'compute.js');
+	let filePath = path.resolve(process.env.PWD + __dirname, 'compute.js');
 	// console.log(filePath);
-	// const worker = new Worker(filePath);
-	// worker.on('message', result => {
-	// 	console.log('Result:', result);
-	// });
+	const worker = new Worker(filePath);
+	worker.on('message', result => {
+		console.log('Result:', result);
+	});
 }
 
 // Example server using cluster module
@@ -57,10 +57,10 @@ function performMultiThreadedOperations() {
 	performAsyncIO();
 
 	// Perform CPU-intensive task using worker threads
-	performCPUIntensiveTask();
+	// performCPUIntensiveTask();
 
 	// Start server using cluster module
-	startServer();
+	// startServer();
 }
 
 // Invoke the function

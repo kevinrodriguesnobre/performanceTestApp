@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { LinksCollection } from '/imports/api/links';
 
-// require('./performanceTest');
+require('./performanceTest');
 require('./performanceTest2');
 
 async function insertLink({ title, url }) {
